@@ -19,8 +19,8 @@ const wsdlXML = fs.readFileSync(wsdlPath, "utf8");
 
 // Crear el servidor SOAP
 soap.listen(app, "/user", userService, wsdlXML);
-
+const port = process.env.PORT || 3000; // Usa el puerto proporcionado por Render o 3000 como fallback
 // Iniciar el servidor
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("Server is running on port 3000");
 });
